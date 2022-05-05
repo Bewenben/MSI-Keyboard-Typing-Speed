@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE Keyboard Typing Speed</title>
+    <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="img/Blue IEEE.png" type="image/icon type">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img class= "AAST" src = "img/AAST logo white.png" alt="AAST White Logo">
+    <img class= "IEEE" src = "img/White Overlay.png" alt="IEEE White Logo">
+    <img class= "MSI" src = "img/MSI-Logo.png" alt="MSI White Logo">
+    <div class="practice" id="practice">Practice Mode</div>
+    <div class="timer" id="timer">01:00</div>
+    <div class="btnpracticemode">
+        <button class="btnres" onClick="window.location.reload()">Restart</button>
+        <button class="btnexit" onClick="ReturnHome()">Exit</button>
+    </div>
+    <div class="score" id="score">
+        <div class="wordscontainer" id="wordscontainer">
+            <div class="words" id="words">0</div>
+            <div class="WPM" id="WPM">WPM</div>
+        </div>
+        <div class="container" id="container">
+            <div class="quote-display" id="quote-display"></div>
+            <textarea id="input" class="input" autofocus></textarea>
+        </div>
+    <div class="charcontainer" id="charcontainer">
+        <div class="char" id="char" class="fadeOut">0</div>
+        <div class="CPM" id="CPM">CPM</div>
+    </div>
+</div>
+    <script src="js/practice.js"></script>
+</body>
+</html>

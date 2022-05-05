@@ -1,0 +1,329 @@
+const RANDOM_QUOTE_API_URL = 'https://api.quotable.io/random'
+const quoteDisplayElement = document.getElementById('quote-display')
+const quoteInputElement = document.getElementById('input')
+const timerElement = document.getElementById('timer')
+const TimeendElement = document.getElementById('container')
+const CpmElement = document.getElementById('char')
+const WpmElement = document.getElementById('words')
+const CharElement = document.getElementById('charcontainer')
+const WordElement = document.getElementById('wordscontainer')
+var NameElement = document.getElementById('resultname')
+var EmailElement = document.getElementById('resultemail')
+var NumberElement = document.getElementById('resultnumber')
+var FacultyElement = document.getElementById('resultfaculty')
+var UniElement = document.getElementById('resultuni')
+var wpminput1 = null;
+var cpminput1 = null;
+var wpminput2 = null;
+var cpminput2 = null;
+var wpminput3 = null;
+var cpminput3 = null;
+var wpminput4 = null;
+var cpminput4 = null;
+var wpminput5 = null;
+var cpminput5 = null;
+var wpminput6 = null;
+var cpminput6 = null;
+var naame = null;
+var email = null;
+var number = null;
+var faculty = null;
+var uni = null;
+var CPM = 0;
+var TotalCPM = 0;
+var flagCPM = 0;
+var WPM = 0;
+var TotalWPM = 0;
+var flagWPM = 0;
+let count = null;
+var w = 0;
+var y = 0;
+var countsecond = 5
+
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+})
+
+document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey){
+        event.preventDefault();
+    }
+})
+
+document.onkeydown = function(e) {
+    if (event.keyCode == 123){
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)){
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)){
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)){
+        return false;
+    }
+    if (e.ctrlKey && e.shiftKey && e.keyCode == "U".charCodeAt(0)){
+        return false;
+    }
+}
+
+/* ----------------------------- */
+/* Input Checker */
+/* ----------------------------- */
+
+/* ----------------------------- */
+/* Char Checker */
+/* ----------------------------- */
+
+quoteInputElement.addEventListener('input', () => {
+    const arrayQuote = quoteDisplayElement.querySelectorAll('span')
+    const arrayValue = quoteInputElement.value.split('')
+    if (CPM > 1000 || WPM > 200) {
+        TotalCPM = 0;
+        CPM = 0;
+        TotalWPM = 0;
+        WPM = 0;
+        renderNewQuote()
+    }
+    arrayQuote.forEach((characterSpan, index) => {
+        const character = arrayValue[index]
+        if (character == null) {
+            characterSpan.classList.remove('correct')
+            characterSpan.classList.remove('incorrect')
+            CPM = 0;
+        }
+        else if (character === characterSpan.innerText) {
+            characterSpan.classList.add('correct')
+            characterSpan.classList.remove('incorrect')
+            CPM++;
+            if (flagCPM == 0) {
+                CpmElement.innerHTML = TotalCPM + CPM
+            }
+            else {
+                CpmElement.innerHTML = TotalCPM + 1
+                flagCPM = 0
+            }
+        }
+
+        else {
+            characterSpan.classList.remove('correct')
+            characterSpan.classList.add('incorrect')
+            if (CPM > 0) {
+                CPM--;
+            }
+            CpmElement.innerHTML = TotalCPM + CPM
+        }
+    })
+
+    /* ----------------------------- */
+    /* WPM & CPM Adder */
+    /* ----------------------------- */
+
+    if (arrayQuote.length === arrayValue.length) {
+        if (TotalCPM > 1000 || TotalWPM > 200) {
+            TotalCPM = 0;
+            CPM = 0;
+            TotalWPM = 0;
+            WPM = 0;
+            renderNewQuote()
+        }
+        TotalCPM = TotalCPM + CPM
+        flagCPM = 1
+        renderNewQuote()
+        TotalWPM = TotalWPM + WPM
+        flagWPM = 1
+    }
+})
+
+/* ----------------------------- */
+/* Word Checker */
+/* ----------------------------- */
+
+quoteInputElement.addEventListener('input', () => {
+    const arrayQuote = quoteDisplayElement.querySelectorAll('p')
+    const arrayValue = quoteInputElement.value.split(' ')
+    WPM = arrayValue.length
+    if (flagWPM == 0) {
+        WpmElement.innerHTML = WPM + TotalWPM;
+    }
+    else {
+        flagWPM = 0
+    }
+    if (arrayQuote.length - 1 === arrayValue.length && arrayQuote.length != WPM) {
+        if (arrayQuote.length === WPM) {
+            renderNewQuote()
+        }
+    }
+})
+
+
+/* ----------------------------- */
+/* Random Generator API */
+/* ----------------------------- */
+
+function getRandomQuote() {
+    return fetch(RANDOM_QUOTE_API_URL)
+        .then(response => response.json())
+        .then(data => data.content)
+}
+
+/* ----------------------------- */
+/* Render the quotes generated by the API */
+/* ----------------------------- */
+
+async function renderNewQuote() {
+    /* Assign variable quote to the generated quote */
+    var quotegenerate = await getRandomQuote()
+    var quote = quotegenerate.toString().toLowerCase()
+    quote = quote.replace(/\./g,'')
+    quote = quote.replace(/\,/g,'')
+    quote = quote.replace(/\'/g,'')
+    quote = quote.replace(/\;/g,'')
+    quote = quote.replace(/\!/g,'')
+    quote = quote.replace(/\?/g,'')
+    quoteDisplayElement.innerHTML = ''
+    /* Insert every letter in a span */
+    quote.split('').forEach(character => {
+        const characterSpan = document.createElement('span')
+        characterSpan.innerText = character
+        quoteDisplayElement.appendChild(characterSpan)
+    })
+    quote.split(' ').forEach(word => {
+        const wordSpan = document.createElement('p')
+        wordSpan.innerText = word
+    })
+    /* Remove quote inside the textarea */
+    quoteInputElement.value = null
+    /* RUN COUNTDOWN TIMER */
+}
+
+/* ----------------------------- */
+/* Game Timer Configuration */
+/* ----------------------------- */
+
+function startTimer() {
+    var countDownDate = new Date()
+    countDownDate = new Date(countDownDate.getTime() + 61000);
+    var x = setInterval(function () {
+        var now = new Date();
+        var distance = countDownDate - now;
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000)
+        document.getElementById("timer").innerHTML = seconds
+        if (distance < 0) {
+            timerElement.innerHTML = "Round Ended"
+            TimeendElement.innerHTML = 'Redirecting to the home page...'
+            TimeendElement.classList.add('containerend')
+            clearInterval(x)
+            w = TotalWPM + WPM;
+            y = document.getElementById('char').innerHTML;
+            console.log(w + " " + y)
+            setTimeout(postdata, 1);
+        }
+    }, 1000);
+}
+
+
+/* ----------------------------- */
+/* Functions that load instantly at first */
+/* ----------------------------- */
+
+function postdata() {
+    let fullform = document.createElement('form');
+    fullform.setAttribute('method', "POST");
+    fullform.setAttribute('action', "leaderboards")
+    let wpm7input = document.createElement("input");
+    let cpm7input = document.createElement("input");
+    let nameinput = document.createElement("input");
+    let emailinput = document.createElement("input");
+    nameinput.setAttribute('type', "hidden");
+    emailinput.setAttribute('type', "hidden");
+    wpm7input.setAttribute('type', "hidden");
+    cpm7input.setAttribute('type', "hidden");
+    nameinput.setAttribute('name', "Name");
+    emailinput.setAttribute('name', "Email");
+    wpm7input.setAttribute('name', "seventh_Trial_WPM");
+    cpm7input.setAttribute('name', "seventh_Trial_CPM");
+    nameinput.setAttribute('value', naame);
+    emailinput.setAttribute('value', email);
+    wpm7input.setAttribute('value', w);
+    cpm7input.setAttribute('value', y);
+    let btn = document.createElement("button");
+    btn.innerHTML = "Submit";
+    btn.type = "submit";
+    btn.name = "formBtn";
+    btn.className = "restarttimer";
+    btn.id = "restarttimer";
+    fullform.appendChild(btn);
+    fullform.insertAdjacentElement('beforeend', nameinput);
+    fullform.insertAdjacentElement('beforeend', emailinput);
+    fullform.appendChild(wpm7input);
+    fullform.appendChild(cpm7input);
+    document.getElementById("score").appendChild(fullform);
+    document.getElementById("restarttimer").style.display = "none";
+    CharElement.style.display = "block"
+    WordElement.style.display = "block"
+    CharElement.classList.add("show");
+    WordElement.classList.add("show");
+    setTimeout(submit, 5000);
+}
+
+function submit() {
+    var button = document.getElementById('restarttimer');
+    button.form.submit();
+}
+
+
+window.onload = function countdown() {
+    quoteDisplayElement.style.display = "none"
+    quoteInputElement.style.visibility = "none"
+    timerElement.style.display = "none"
+    TimeendElement.style.display = "none"
+    CharElement.style.display = "none"
+    WordElement.style.display = "none"
+    renderNewQuote()
+    count = document.createElement("p")
+    count.setAttribute('class', 'countdown')
+    count.setAttribute('id', 'countdown')
+    document.getElementById('countdowntimer').appendChild(count)
+    var countDownDate = new Date()
+    countDownDate = new Date(countDownDate.getTime() + 12000);
+    var x = setInterval(function () {
+        var now = new Date();
+        var distance = countDownDate - now;
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000)
+        document.getElementById("countdown").innerHTML = seconds
+        if (distance < 2000) {
+            count.classList.add('hide')
+            clearInterval(x)
+            STARTGAME()
+        }
+    }, 1000);
+}
+
+function STARTGAME() {
+    setTimeout(trial1, 1);
+    startTimer()
+}
+
+window.addEventListener('load', () => {
+    const nameparam = sessionStorage.getItem("Name");
+    const emailparam = sessionStorage.getItem("Email");
+    naame = nameparam
+    email = emailparam
+})
+
+function trial1() {
+    document.getElementById('countdowntimer').style.display = 'none'
+    var x = document.getElementById("trial1")
+    x.classList.add("show")
+    quoteDisplayElement.style.display = "block"
+    quoteInputElement.style.display = "block"
+    timerElement.style.display = "block"
+    TimeendElement.style.display = "block"
+    focusInput()
+}
+
+function focusInput(){
+    document.getElementById("input").focus();
+}

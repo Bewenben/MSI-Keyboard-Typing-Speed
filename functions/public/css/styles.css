@@ -1,0 +1,544 @@
+
+/* ----------------------------- */
+/* BODY */
+/* ----------------------------- */
+
+@font-face {
+    font-family: Source Sans Pro;
+    src: url(fonts/SourceSansPro-Regular.ttf);
+}
+
+@font-face {
+    font-family: Source Sans Pro;
+    src: url(fonts/SourceSansPro-SemiBold.ttf);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: Source Sans Pro;
+    src: url(fonts/SourceSansPro-Bold.ttf);
+    font-weight: 700;
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../img/hex.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Source Sans Pro;
+    overflow: hidden;
+    -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
+}
+
+/* LOGOS */
+
+.IEEE {
+    padding: 5px;
+    width: 6%;
+    float:right;
+}
+
+.AAST {
+    padding: 5px;
+    width: 8%;
+}
+
+.MSI {
+    padding: 5px;
+    width: 10%;
+    float: right
+}
+
+.btnindex img {
+    width: 50%;
+}
+
+/* PRACTICE MODE */
+
+.practice{
+    /* background-color: rgb(0, 247, 255); */
+    background-color: white;
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 40px;
+    text-align: center;
+    clear: both;
+    font-weight: 600;
+}
+
+/* ----------------------------- */
+/* MAIN BUTTONS */
+/* ----------------------------- */
+
+/* PRACTICE BUTTON DESIGN */
+
+.btnindex{
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height : 500px;
+}
+
+.btnpracticemode{
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    justify-content: center;
+}
+
+button.btnres{
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 97px;
+    background: #fff;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+button.btnexit{
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 97px;
+    background: #fff;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+
+button.btnexit:hover{
+    background: #b80f0a;
+    color: #fff;
+    width: 200px;
+    height: 50px;
+}
+
+button.btnres:hover{
+    background: #b80f0a;
+    color: #fff;
+    width: 200px;
+    height: 50px;
+}
+
+.btn{
+    border: none;
+    width: 220px;
+    height: 70px;
+    border-radius: 25px;
+    background: #fff;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background: #b80f0a;
+    color: #fff;
+    width: 250px;
+    height: 100px;
+}
+
+/* RESTART BUTTON DESIGN */
+
+.restarttimer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 97px;
+    background: #fff;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.restarttimer:hover{
+    background: #b80f0a;
+    color: #fff;
+    width: 220px;
+    height: 70px;
+}
+
+/* COMPETITIVE BUTTON DESIGN */
+
+/* ----------------------------- */
+/* Typing Area and Quote Generator */
+/* ----------------------------- */
+
+/* Typing Area and Quote Generator Container */
+
+.container {
+    font-size: 40px;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .5rem;
+    width: 700px;
+    max-width: 90%;
+    background: #161718;
+    color: #fff;
+}
+
+.containerform {
+    font-size: 40px;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .5rem;
+    width: 700px;
+    max-width: 90%;
+    background: #b80f0a;
+    color: #fff;
+}
+
+/* Quote Generator */
+
+.container .quote-display {
+    font-size: 32px;
+    margin-bottom: 1rem;
+    margin-left: calc(1rem + 2px);
+    margin-right: calc(1rem + 2px);
+}
+/* Typing Area */
+
+.container .input {
+    outline: none;
+    background-color:transparent;
+    width: 100%;
+    height: 8rem;
+    margin: auto;
+    resize: none;
+    padding: .5rem 1rem;
+    font-size: 32px;
+    font-family: Source Sans Pro;
+}
+
+.container .input:focus {
+    border: 4px solid #df0909;
+}
+
+/* ----------------------------- */
+/* Timer */
+/* ----------------------------- */
+
+.timer{
+    background-color: rgb(255, 255, 255);
+    /* background-image: linear-gradient(180deg, rgb(28, 230, 237) 0%, rgb(223, 234, 253) 100%);
+    background-image: conic-gradient(180deg, rgb(28, 230, 237) 0%, rgb(223, 234, 253) 100%); */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 120px;
+    text-align: center;
+    clear: both;
+    font-weight: 700;
+}
+
+.countdown{
+    background-color: rgb(255, 255, 255);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 60px;
+    text-align: center;
+    clear: both;
+    transition: opacity 1s;
+    opacity: 1;
+    font-weight: 700;
+}
+
+.countdown.hide {
+    opacity: 0;
+}
+
+/* ----------------------------- */
+/* Corrector */
+/* ----------------------------- */
+
+.correct{
+    color : #df0909
+}
+
+.incorrect{
+    color: rgb(253, 255, 158);
+    text-decoration: underline;
+}
+
+/* ----------------------------- */
+/* WORD PER MINUTE */
+/* ----------------------------- */
+
+/* WORDS CONTAINER */
+
+#wordscontainer{
+    background: #df0909;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10rem;
+    width: auto;
+    width: 700px;
+    max-width: 7%;
+    margin-left: 150px;
+    color: white;
+    transition: 1s
+}
+
+
+/* WORDS NUMBER */
+
+.words{
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* WORDS TEXT */
+
+.WPM{
+    font-size: 24px;
+    text-align: center;
+}
+
+/* ----------------------------- */
+/* CHARACTER PER MINUTE */
+/* ----------------------------- */
+
+#charcontainer{
+    margin-right: 150px;
+    background: #df0909;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 10rem;
+    width: auto;
+    width: 700px;
+    max-width: 7%;
+    margin-left: 5px;
+    color: white;
+    transition: 1s;
+}
+
+/* CHARACTER NUMBER */
+
+.char{
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* CHARACTER TEXT */
+
+.CPM{
+    font-size: 24px;
+    text-align: center;
+}
+
+/* SCORE INCLUDING WPM & CPM */
+
+.score{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#Number{
+    font-size: 13px;
+    margin-top: 10px ;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #171819;
+    border-radius: 10px;
+    transition: 0.2s;
+    font-family: Source Sans Pro;
+    box-shadow: 1px 1px 1px #171819;
+}
+
+input:focus {
+    border: 3px solid #171819;
+    box-shadow: 1px 1px 1px #171819;
+    outline: none;
+}
+
+.iti {
+    display: block;
+}
+
+.iti__country-list {
+    position: absolute;
+    z-index: 2;
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 0 -1px;
+    box-shadow: 1px 1px 4px rgb(0 0 0 / 20%);
+    background-color: red;
+    border: 1px solid #CCC;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+    overflow-x: hidden; 
+}
+
+
+.iti * {
+    font-size: 20px;
+}
+
+.iti__dial-code{
+    color: black;
+}
+
+.iti__selected-flag {
+    height: 50%;
+    margin-top: 20px;
+}
+
+
+.label {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+textarea {
+    border-radius: 10px;
+    border: 2px solid #df0909;
+    color: #fff;
+}
+
+textarea:focus {
+    box-shadow: 1px 1px 1px #df0909;
+    outline: none;
+    overflow: hidden;
+    color: #fff;
+}
+
+.incorrectform[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid red;
+    border-radius: 10px;
+    transition: 0.2s;
+    font-family: Source Sans Pro;
+    box-shadow: 1px 1px 1px red;
+}
+
+.incorrectform[type=text]:focus {
+    border: 3px solid red;
+    box-shadow: 1px 1px 1px red;
+    outline: none;
+}
+
+a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: none;
+    width: 220px;
+    height: 70px;
+    border-radius: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #fff;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    transition: 0.3s;
+    color: inherit;
+    color: black;
+}
+
+a:hover, a:focus a:active {
+    background: #b80f0a;
+    color: #fff;
+    width: 250px;
+    height: 100px;
+}
+
+#trial1 {
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#trial1.show {
+    opacity: 1;
+}
+
+#countsec{
+    background-color: rgb(255, 255, 255);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 60px;
+    text-align: center;
+    clear: both;
+    transition: opacity 1s;
+    opacity: 1;
+    font-weight: 700;
+}
+
+#focus {
+    display: none;
+}
+
+.details{
+    background-color: #b80f0a;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    color: white;
+    text-align: center;
+}

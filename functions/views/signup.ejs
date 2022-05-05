@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE Keyboard Typing Speed Sign Up</title>
+    <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+   />
+    <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" href="img/Blue IEEE.png" type="image/icon type">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img class= "AAST" src = "img/AAST logo white.png" alt="AAST White Logo">
+    <img class= "IEEE" src = "img/White Overlay.png" alt="IEEE White Logo">
+    <img class= "MSI" src = "img/MSI-Logo.png" alt="MSI White Logo">
+    <form id="myForm" action="competition" method="POST">
+    <div class = "containerform">
+        <div class = "label" id = "label">
+            <label for="Name">Name</label>
+        </div>
+        <div>
+            <input type = "text" id = "Name" class = "Name" name = "Name" placeholder = "Enter your Name" required tabIndex="1">
+        </div>
+        <div class = "label" id = "label">
+            <label for="Email">Email</label>
+        </div>
+        <div>
+            <input type = "email" id = "Email" class = "Email" name = "Email" placeholder = "Enter your Email" required tabIndex="2">
+        </div>
+        <div class = "label">
+            <label for="Number">Phone Number</label>
+        </div>
+        <div>
+            <input type = "tel" id = "Number" name = "Number" required tabIndex="3">
+        </div>
+        <div class = "label">
+            <label for="Faculty" class = "Faculty">Faculty</label>
+        </div>
+        <div>
+            <input type = "text" id = "Faculty" name = "Faculty" placeholder = "Enter your Faculty name" required tabIndex="4">
+        </div>
+        <div class = "label">
+            <label for="University">University</label>
+        </div>
+        <div>
+            <input type = "text" id = "University" name = "University" placeholder = "Enter your University name" required tabIndex="5">
+        </div>
+    </div>
+    <br>
+    <div>
+        <button type = "submit" class = "restarttimer" id = "submit" onclick="HandleSubmit()">Submit</button>
+    </div>
+</form>
+<div class="details">To update your score, please enter the same email you used for the last score.</div>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+    $(document).on('keypress', 'input,select', function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            var $next = $('[tabIndex=' + (+this.tabIndex + 1) + ']');
+            console.log($next.length);
+            if (!$next.length) {
+            $next = $('[tabIndex=1]');        }
+            $next.focus() .click();
+        }
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="js/signup.js"></script>
+</body>
+</html>

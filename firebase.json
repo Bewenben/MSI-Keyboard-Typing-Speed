@@ -1,0 +1,19 @@
+{
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "trailingSlash": false,
+    "cleanUrls" : true,
+    "rewrites": [ {
+      "source": "**",
+      "function": "app"
+    } ],
+    "public": "functions/public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
