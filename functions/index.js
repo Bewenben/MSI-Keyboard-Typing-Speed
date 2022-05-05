@@ -87,7 +87,7 @@ app.post("/competition", async (req, res) => {
     
             resource: {
                 values: [
-                    [Name, Email, Number, Faculty, University]
+                    [Email, Name, Number, Faculty, University]
                 ]
             }
         })
