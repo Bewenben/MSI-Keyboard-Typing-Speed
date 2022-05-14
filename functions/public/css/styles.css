@@ -32,7 +32,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     font-family: Source Sans Pro;
-    overflow: hidden;
     -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;
 }
 
@@ -59,10 +58,163 @@ body {
     width: 50%;
 }
 
+/* HOMEPAGE */
+
+a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    border: none;
+    width: 220px;
+    height: 70px;
+    border-radius: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background: #fff;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    transition: 0.3s;
+    color: inherit;
+    color: black;
+}
+
+a:hover, a:focus a:active {
+    background: #b80f0a;
+    color: #fff;
+    width: 250px;
+    height: 100px;
+}
+
+/* LEADERBOARDS */
+
+.outputheader{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.outputrows{
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+td{
+    padding-top: 10px;
+}
+
+table{
+    overflow: auto;
+}
+
+.outputcontainer{
+    margin-top: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scoreboard{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    border-radius: .5rem;
+    max-width: 100%;
+    background: #161718;
+    color: #fff;
+}
+
+.leadertitle {
+    background-color: #b80f0a;
+    /* background-image: linear-gradient(180deg, rgb(28, 230, 237) 0%, rgb(223, 234, 253) 100%);
+    background-image: conic-gradient(180deg, rgb(28, 230, 237) 0%, rgb(223, 234, 253) 100%); */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 60px;
+    padding: 0;
+    text-align: center;
+    clear: both;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.leadersub1 {
+    background-color: white;
+    /* background-image: linear-gradient(180deg, rgb(28, 230, 237) 0%, rgb(223, 234, 253) 100%);
+    background-image: conic-gradient(180deg, rgb(28, 230, 237) 0%, rgb(223, 234, 253) 100%); */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 40px;
+    padding: 0;
+    text-align: center;
+    clear: both;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.leadersub2 {
+    background-color: white;
+    /* background-image: linear-gradient(180deg, rgb(28, 230, 237) 0%, rgb(223, 234, 253) 100%);
+    background-image: conic-gradient(180deg, rgb(28, 230, 237) 0%, rgb(223, 234, 253) 100%); */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-size: 40px;
+    padding: 0;
+    text-align: center;
+    clear: both;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.leadersubhide{
+    display: none;
+}
+
+.leaderbtn{
+    border: none;
+    width: 250px;
+    height: 50px;
+    border-radius: 97px;
+    background: #fff;
+    font-family: Source Sans Pro;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    transition: 0.3s;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.leaderbtn:hover{
+    background: #b80f0a;
+    color: #fff;
+    width: 250px;
+    height: 50px;
+}
+
 /* PRACTICE MODE */
 
 .practice{
-    /* background-color: rgb(0, 247, 255); */
     background-color: white;
     background-size: 100%;
     background-repeat: repeat;
@@ -75,21 +227,6 @@ body {
     text-align: center;
     clear: both;
     font-weight: 600;
-}
-
-/* ----------------------------- */
-/* MAIN BUTTONS */
-/* ----------------------------- */
-
-/* PRACTICE BUTTON DESIGN */
-
-.btnindex{
-    margin-top: 2vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height : 500px;
 }
 
 .btnpracticemode{
@@ -163,8 +300,6 @@ button.btnres:hover{
     height: 100px;
 }
 
-/* RESTART BUTTON DESIGN */
-
 .restarttimer{
     display: flex;
     justify-content: center;
@@ -191,7 +326,95 @@ button.btnres:hover{
     height: 70px;
 }
 
-/* COMPETITIVE BUTTON DESIGN */
+/* ----------------------------- */
+/* MAIN BUTTONS */
+/* ----------------------------- */
+
+.btnindex{
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height : 500px;
+}
+
+/* SIGN UP */
+
+.containerform {
+    font-size: 40px;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: .5rem;
+    width: 700px;
+    max-width: 90%;
+    background: #b80f0a;
+    color: #fff;
+}
+
+#Number{
+    font-size: 13px;
+    margin-top: 10px ;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #171819;
+    border-radius: 10px;
+    transition: 0.2s;
+    font-family: Source Sans Pro;
+    box-shadow: 1px 1px 1px #171819;
+}
+
+input:focus {
+    border: 3px solid #171819;
+    box-shadow: 1px 1px 1px #171819;
+    outline: none;
+}
+
+.iti {
+    display: block;
+}
+
+.iti__country-list {
+    position: absolute;
+    z-index: 2;
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 0 -1px;
+    box-shadow: 1px 1px 4px rgb(0 0 0 / 20%);
+    background-color: red;
+    border: 1px solid #CCC;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+    overflow-x: hidden; 
+}
+
+
+.iti * {
+    font-size: 20px;
+}
+
+.iti__dial-code{
+    color: black;
+}
+
+.iti__selected-flag {
+    height: 50%;
+    margin-top: 20px;
+}
+
+
+.label {
+    font-size: 20px;
+    margin-top: 5px;
+}
 
 /* ----------------------------- */
 /* Typing Area and Quote Generator */
@@ -208,18 +431,6 @@ button.btnres:hover{
     width: 700px;
     max-width: 90%;
     background: #161718;
-    color: #fff;
-}
-
-.containerform {
-    font-size: 40px;
-    padding: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: .5rem;
-    width: 700px;
-    max-width: 90%;
-    background: #b80f0a;
     color: #fff;
 }
 
@@ -380,69 +591,6 @@ button.btnres:hover{
     display: flex;
 }
 
-#Number{
-    font-size: 13px;
-    margin-top: 10px ;
-}
-
-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 1px solid #171819;
-    border-radius: 10px;
-    transition: 0.2s;
-    font-family: Source Sans Pro;
-    box-shadow: 1px 1px 1px #171819;
-}
-
-input:focus {
-    border: 3px solid #171819;
-    box-shadow: 1px 1px 1px #171819;
-    outline: none;
-}
-
-.iti {
-    display: block;
-}
-
-.iti__country-list {
-    position: absolute;
-    z-index: 2;
-    list-style: none;
-    text-align: left;
-    padding: 0;
-    margin: 0 0 0 -1px;
-    box-shadow: 1px 1px 4px rgb(0 0 0 / 20%);
-    background-color: red;
-    border: 1px solid #CCC;
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll;
-    overflow-x: hidden; 
-}
-
-
-.iti * {
-    font-size: 20px;
-}
-
-.iti__dial-code{
-    color: black;
-}
-
-.iti__selected-flag {
-    height: 50%;
-    margin-top: 20px;
-}
-
-
-.label {
-    font-size: 20px;
-    margin-top: 5px;
-}
-
 textarea {
     border-radius: 10px;
     border: 2px solid #df0909;
@@ -472,34 +620,6 @@ textarea:focus {
     border: 3px solid red;
     box-shadow: 1px 1px 1px red;
     outline: none;
-}
-
-a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    border: none;
-    width: 220px;
-    height: 70px;
-    border-radius: 25px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background: #fff;
-    font-family: Source Sans Pro;
-    font-weight: 600;
-    font-size: 24px;
-    text-align: center;
-    transition: 0.3s;
-    color: inherit;
-    color: black;
-}
-
-a:hover, a:focus a:active {
-    background: #b80f0a;
-    color: #fff;
-    width: 250px;
-    height: 100px;
 }
 
 #trial1 {

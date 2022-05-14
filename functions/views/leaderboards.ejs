@@ -14,17 +14,23 @@
     <img class= "AAST" src = "img/AAST logo white.png" alt="AAST White Logo">
     <img class= "IEEE" src = "img/White Overlay.png" alt="IEEE White Logo">
     <img class= "MSI" src = "img/MSI-Logo.png" alt="MSI White Logo">
-    <div class="btnindex">
-        <div class="container" id="container">
-            <div id="timer">
-                <p>Check your place in the leaderboards!</p>
-            </div>
+    <div class="outputcontainer">
+        <div class="scoreboard" id="scoreboard">
+        <div class="btnpracticemode">
+            <button class="leaderbtn" onClick="competitive()">Competitive Mode</button>
+            <button class="leaderbtn" onClick="contest()">Contest 2021/2022</button>
         </div>
-        <a href="https://docs.google.com/spreadsheets/d/11Xzt9o9CSewZfaOO7chMSy752seXdZcIWZGHdybJpJA/edit#gid=0">Click here!</a>
+        <div class="leader">
+            <div class="leadertitle">Leaderboards</div>
+            <div class="leadersub1" id="leadersub1">Competitive Mode</div>
+            <div class="leadersub2" id="leadersub2">Contest 2021/2022</div>
+        </div>
+            <table class="outputheader" id="outputheader"></table>
+        </div>
     </div>
-    <script src="https://app.awesome-table.com/AwesomeTableInclude.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js">
     </script>
     <script src="js/leaderboards.js"></script>
+    <py-script></py-script>
 </body>
 </html>

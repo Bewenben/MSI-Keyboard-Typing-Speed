@@ -27,13 +27,20 @@ This Project was made for IEEE AAST Alexandria Student Branch's Keyboard Typing 
 ## Upcoming Features:
 
 - Accuracy
-- Leaderboards on-site
 
 If you have any ideas or features to be added or encounter problems with the web app, don't hesitate to contact me privately :
 
 - ###### [IEEE Mail](mailto:omarkhaled@ieee.org)
 
 - ###### [Linkedin](https://www.linkedin.com/in/bewenben/)
+
+## Changelog:
+
+#### Version 2.0
+- Leaderboards on-site is finally here! no more external links to find out your rank in the competitive mode.
+
+#### Version 1.0
+- Initial Release
 
 
 

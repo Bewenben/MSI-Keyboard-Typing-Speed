@@ -2,9 +2,10 @@ const functions = require("firebase-functions");
 const express = require('express');
 const { google } = require('googleapis');
 const path = require('path');
-const app = express();
+const app = require("https-localhost")();
 const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
+const cors = require('cors');
 admin.initializeApp();
 const homeroute = require("./routes/home.js")
 const signuproute = require("./routes/signup.js")
@@ -53,6 +54,12 @@ app.use("/competition6", competition6throute)
 app.use("/competition7", competition7throute)
 
 app.use("/leaderboards",leaderboardsroute)
+
+app.all('/', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next()
+  });
 
 app.post("/competition", async (req, res) => {
 
@@ -253,7 +260,7 @@ app.post("/competition7", async (req, res) => {
     res.render("competition7");
 });
 
-app.post("/leaderboards", async (req, res) => {
+app.post("/leaderboards" , async function(req, res, next) {
 
     const { Name, Email, seventh_Trial_WPM, seventh_Trial_CPM } = req.body;
 
