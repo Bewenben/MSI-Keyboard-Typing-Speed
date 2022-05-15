@@ -5,7 +5,6 @@ const path = require('path');
 const app = require("https-localhost")();
 const bodyParser = require('body-parser');
 const admin = require('firebase-admin');
-const cors = require('cors');
 admin.initializeApp();
 const homeroute = require("./routes/home.js")
 const signuproute = require("./routes/signup.js")
@@ -65,6 +64,21 @@ app.post("/competition", async (req, res) => {
 
     const { Name, Email, Number, Faculty, University} = req.body;
 
+    const first_Trial_WPM = "0";
+    const first_Trial_CPM = "0";
+    const second_Trial_WPM = "0";
+    const second_Trial_CPM = "0";
+    const third_Trial_WPM = "0";
+    const third_Trial_CPM = "0";
+    const fourth_Trial_WPM = "0";
+    const fourth_Trial_CPM = "0";
+    const fifth_Trial_WPM = "0";
+    const fifth_Trial_CPM = "0";
+    const sixth_Trial_WPM = "0";
+    const sixth_Trial_CPM = "0";
+    const seventh_Trial_WPM = "0";
+    const seventh_Trial_CPM = "0";
+
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
 
@@ -89,12 +103,12 @@ app.post("/competition", async (req, res) => {
 
             auth,
             spreadsheetId,
-            range: "Sheet1!A:E",
+            range: "Sheet1!A:S",
             valueInputOption: "USER_ENTERED",
     
             resource: {
                 values: [
-                    [Email, Name, Number, Faculty, University]
+                    [Email, Name, Number, Faculty, University, first_Trial_WPM, first_Trial_CPM, second_Trial_WPM, second_Trial_CPM , third_Trial_WPM, third_Trial_CPM, fourth_Trial_WPM, fourth_Trial_CPM, fifth_Trial_WPM, fifth_Trial_CPM, sixth_Trial_WPM, sixth_Trial_CPM, seventh_Trial_WPM, seventh_Trial_CPM]
                 ]
             }
         })
@@ -105,7 +119,7 @@ app.post("/competition", async (req, res) => {
 
 app.post("/competition2", async (req, res) => {
 
-    const { Name, Email, first_Trial_WPM, first_Trial_CPM} = req.body;
+    const { Email, first_Trial_WPM, first_Trial_CPM} = req.body;
 
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
@@ -132,7 +146,7 @@ app.post("/competition2", async (req, res) => {
 
 app.post("/competition3", async (req, res) => {
 
-    const { Name, Email, second_Trial_WPM, second_Trial_CPM} = req.body;
+    const { Email, second_Trial_WPM, second_Trial_CPM} = req.body;
 
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
@@ -158,7 +172,7 @@ app.post("/competition3", async (req, res) => {
 
 app.post("/competition4", async (req, res) => {
 
-    const { Name, Email, third_Trial_WPM, third_Trial_CPM} = req.body;
+    const { Email, third_Trial_WPM, third_Trial_CPM} = req.body;
 
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
@@ -184,7 +198,7 @@ app.post("/competition4", async (req, res) => {
 
 app.post("/competition5", async (req, res) => {
 
-    const { Name, Email, fourth_Trial_WPM, fourth_Trial_CPM} = req.body;
+    const { Email, fourth_Trial_WPM, fourth_Trial_CPM} = req.body;
 
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
@@ -210,7 +224,7 @@ app.post("/competition5", async (req, res) => {
 
 app.post("/competition6", async (req, res) => {
 
-    const { Name, Email, fifth_Trial_WPM, fifth_Trial_CPM} = req.body;
+    const { Email, fifth_Trial_WPM, fifth_Trial_CPM} = req.body;
 
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
@@ -236,7 +250,7 @@ app.post("/competition6", async (req, res) => {
 
 app.post("/competition7", async (req, res) => {
 
-    const { Name, Email, sixth_Trial_WPM, sixth_Trial_CPM} = req.body;
+    const { Email, sixth_Trial_WPM, sixth_Trial_CPM} = req.body;
 
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",
@@ -262,7 +276,7 @@ app.post("/competition7", async (req, res) => {
 
 app.post("/leaderboards" , async function(req, res, next) {
 
-    const { Name, Email, seventh_Trial_WPM, seventh_Trial_CPM } = req.body;
+    const { Email, seventh_Trial_WPM, seventh_Trial_CPM } = req.body;
 
     const auth = new google.auth.GoogleAuth({
         keyFile: "credentials.json",

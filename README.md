@@ -36,11 +36,17 @@ If you have any ideas or features to be added or encounter problems with the web
 
 ## Changelog:
 
+#### Version 2.1
+- Leaderboards layout changed.
+- Added back button to return to the home page.
+- Leaderboards are now responsive to check it out on other devices.
+- Game is now responsive as well in case you want to try it on your phone.
+
 #### Version 2.0
 - Leaderboards on-site is finally here! no more external links to find out your rank in the competitive mode.
 
 #### Version 1.0
-- Initial Release
+- Initial Release.
 
 
 

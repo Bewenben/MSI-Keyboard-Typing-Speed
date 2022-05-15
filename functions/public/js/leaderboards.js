@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', competitive);
 const leader = document.querySelector('.leader')
 
+function back () {
+    window.location.href = "/index";
+};
+
 function competitive(){
 const url = 'https://docs.google.com/spreadsheets/d/11Xzt9o9CSewZfaOO7chMSy752seXdZcIWZGHdybJpJA/gviz/tq?';
 const outputheader = document.querySelector('.outputheader');
@@ -9,6 +13,15 @@ const table = document.getElementById("outputheader");
 
 while (table.hasChildNodes()) {
     table.removeChild(table.firstChild);
+  }
+  
+  var btns = document.getElementsByClassName("leaderbtn");
+  for (const element of btns) {
+    element.addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
   }
   
   document.getElementById('leadersub1').classList.remove('leadersubhide');
@@ -21,7 +34,6 @@ fetch(url)
     const row = document.createElement('tr');
     outputheader.append(row);
     data.table.cols.forEach((heading)=>{
-        console.log(heading);
         const cell = document.createElement('td');
         cell.textContent = heading.label;
         row.append(cell);
@@ -49,6 +61,15 @@ function contest(){
         table.removeChild(table.firstChild);
       }
 
+      var btns = document.getElementsByClassName("leaderbtn");
+      for (const element of btns) {
+        element.addEventListener("click", function() {
+          var current = document.getElementsByClassName("active");
+          current[0].className = current[0].className.replace(" active", "");
+          this.className += " active";
+        });
+      }
+
       document.getElementById('leadersub1').classList.add('leadersubhide');
       document.getElementById('leadersub2').classList.remove('leadersubhide');
     
@@ -59,7 +80,6 @@ function contest(){
         const row = document.createElement('tr');
         outputheader.append(row);
         data.table.cols.forEach((heading)=>{
-            console.log(heading);
             const cell = document.createElement('td');
             cell.textContent = heading.label;
             row.append(cell);

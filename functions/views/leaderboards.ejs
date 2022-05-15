@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta content="IE=edge">
@@ -8,29 +9,37 @@
     <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="icon" href="img/Blue IEEE.png" type="image/icon type">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    <img class= "AAST" src = "img/AAST logo white.png" alt="AAST White Logo">
-    <img class= "IEEE" src = "img/White Overlay.png" alt="IEEE White Logo">
-    <img class= "MSI" src = "img/MSI-Logo.png" alt="MSI White Logo">
+    <img class="AAST" src="img/AAST logo white.png" alt="AAST White Logo">
+    <img class="IEEE" src="img/White Overlay.png" alt="IEEE White Logo">
+    <img class="MSI" src="img/MSI-Logo.png" alt="MSI White Logo">
     <div class="outputcontainer">
         <div class="scoreboard" id="scoreboard">
-        <div class="btnpracticemode">
-            <button class="leaderbtn" onClick="competitive()">Competitive Mode</button>
-            <button class="leaderbtn" onClick="contest()">Contest 2021/2022</button>
-        </div>
-        <div class="leader">
-            <div class="leadertitle">Leaderboards</div>
-            <div class="leadersub1" id="leadersub1">Competitive Mode</div>
-            <div class="leadersub2" id="leadersub2">Contest 2021/2022</div>
-        </div>
-            <table class="outputheader" id="outputheader"></table>
+            <div class="leader">
+                <div>
+                    <button type = "button" class="leaderback" onClick="back()"><i class="arrow left"></i></button>
+                    <p class="leadertitle">Leaderboards</p>
+                </div>
+                <div class="leadersub1" id="leadersub1">Competitive Mode</div>
+                <div class="leadersub2" id="leadersub2">Contest 2021/2022</div>
+            </div>
+            <div class="btnpracticemode">
+                <button class="leaderbtn active" onClick="competitive()">Competitive Mode</button>
+                <button class="leaderbtn" onClick="contest()">Contest 2021/2022</button>
+            </div>
+            <div style="overflow-x:auto;">
+                    <table class="outputheader" id="outputheader"></table>
+                </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.js">
     </script>
     <script src="js/leaderboards.js"></script>
-    <py-script></py-script>
 </body>
+
 </html>
